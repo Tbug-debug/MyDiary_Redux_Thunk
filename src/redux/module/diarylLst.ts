@@ -18,7 +18,7 @@ export const __getDiary = createAsyncThunk(
   "diary/getDiary",
   async (_, thunkAPI) => {
     try {
-      const data = await axios.get("http://localhost:4000/list");
+      const data = await axios.get("https://mydiaryt.herokuapp.com/list");
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

@@ -31,7 +31,7 @@ function Home() {
   }, [dispatch]);
 
   const onCLickDelete = async (id: number) => {
-    await acuxios.delete(`list/${id}`);
+    await acuxios.delete(`https://mydiaryt.herokuapp.com/list/${id}`);
     dispatch(__getDiary());
   };
 
