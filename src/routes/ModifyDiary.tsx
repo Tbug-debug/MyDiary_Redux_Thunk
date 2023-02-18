@@ -31,12 +31,19 @@ function ModifyDiary() {
   const dispatch = useDispatch<AppDispatch>();
 
   const sendDataToJson = async (data: DataTyep) => {
-    acuxios.put(`https://mydiaryt.herokuapp.com/list/${id}`, data);
+    const currentDate = diary.find((d) => d.id === Number(id))?.date || "";
+    const updatedData: DataTyep = {
+      ...data,
+      date: currentDate,
+    };
+    acuxios.put(`https://mydiaryt.herokuapp.com/list/${id}`, updatedData);
     dispatch(__getDiary());
   };
 
   function submitValue(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const diaryToEdit = diary.find((d) => d.id === Number(id));
+    if (!diaryToEdit) return;
     diary.map((_, i) => {
       if (!title && !body) {
         return;
@@ -51,9 +58,9 @@ function ModifyDiary() {
         navigate("/");
       } else {
         const updatedData: DataTyep = {
-          id: diary[i].id,
-          title: title || diary[i].title,
-          body: body || diary[i].body,
+          id: diaryToEdit.id,
+          title: title || diaryToEdit.title,
+          body: body || diaryToEdit.body,
           date: diary[i].date,
         };
         sendDataToJson(updatedData);
