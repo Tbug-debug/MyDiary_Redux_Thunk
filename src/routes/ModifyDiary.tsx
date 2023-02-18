@@ -31,12 +31,7 @@ function ModifyDiary() {
   const dispatch = useDispatch<AppDispatch>();
 
   const sendDataToJson = async (data: DataTyep) => {
-    const currentDate = diary.find((d) => d.id === Number(id))?.date || "";
-    const updatedData: DataTyep = {
-      ...data,
-      date: currentDate,
-    };
-    acuxios.put(`https://mydiaryt.herokuapp.com/list/${id}`, updatedData);
+    acuxios.put(`https://mydiaryt.herokuapp.com/list/${id}`, data);
     dispatch(__getDiary());
   };
 
@@ -44,30 +39,14 @@ function ModifyDiary() {
     event.preventDefault();
     const diaryToEdit = diary.find((d) => d.id === Number(id));
     if (!diaryToEdit) return;
-    diary.map((_, i) => {
-      if (!title && !body) {
-        return;
-      } else if (title && body) {
-        const updatedData: DataTyep = {
-          id: diary[i].id,
-          title: title,
-          body: body,
-          date: diary[i].date,
-        };
-        sendDataToJson(updatedData);
-        navigate("/");
-      } else {
-        const updatedData: DataTyep = {
-          id: diaryToEdit.id,
-          title: title || diaryToEdit.title,
-          body: body || diaryToEdit.body,
-          date: diary[i].date,
-        };
-        sendDataToJson(updatedData);
-        navigate("/");
-      }
-      return null;
-    });
+    const updatedData: DataTyep = {
+      id: diaryToEdit.id,
+      title: title || diaryToEdit.title,
+      body: body || diaryToEdit.body,
+      date: diaryToEdit.date,
+    };
+    sendDataToJson(updatedData);
+    navigate("/");
   }
 
   return (
