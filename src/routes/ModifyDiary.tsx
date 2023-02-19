@@ -39,6 +39,7 @@ function ModifyDiary() {
     event.preventDefault();
     const diaryToEdit = diary.find((d) => d.id === Number(id));
     if (!diaryToEdit) return;
+    if (!title && !body) return;
     const updatedData: DataTyep = {
       id: diaryToEdit.id,
       title: title || diaryToEdit.title,
