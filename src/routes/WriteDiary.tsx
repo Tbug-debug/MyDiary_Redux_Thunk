@@ -65,6 +65,7 @@ function WriteTodo() {
             onChange={setDiary}
             value={date}
             name="date"
+            type="date"
             placeholder="날짜를 입력하세요."
           />
           <WriteDaiaryInputbody
