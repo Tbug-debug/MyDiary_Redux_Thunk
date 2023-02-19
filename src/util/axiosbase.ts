@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const acuxios = axios.create({
-  baseURL: "https://mydiaryt.herokuapp.com",
+  baseURL: process.env.REACT_APP_BASE_URL,
 });
