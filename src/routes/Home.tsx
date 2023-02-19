@@ -24,6 +24,8 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
   const darkLight = useSelector((state: RooteState) => state.darklight);
 
+  console.log(diary);
+
   useEffect(() => {
     dispatch(__getDiary());
   }, [dispatch]);
@@ -68,7 +70,7 @@ function Home() {
         </DiaryTextbox>
       </DiaryTitleBox>
       <DiaryOutBox>
-        {diary?.map((a) => {
+        {diary.map((a) => {
           return (
             <DiaryBox key={a.id}>
               <Link to={`/Detail/${a.id}`}>
