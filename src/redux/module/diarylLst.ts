@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
+import { acuxios } from "../../util/axiosbase";
 
 interface Diary {
   title: string;
@@ -18,7 +19,7 @@ export const __getDiary = createAsyncThunk(
   "diary/getDiary",
   async (_, thunkAPI) => {
     try {
-      const data = await axios.get("https://mydiaryt.herokuapp.com/list");
+      const data = await acuxios.get("list");
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

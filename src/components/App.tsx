@@ -6,9 +6,7 @@ import { useSelector } from "react-redux";
 import { RooteState } from "../redux/config/configStore";
 
 function App() {
-  const darkLight = useSelector(
-    (state: RooteState) => state.darklight.lightdark
-  );
+  const darkLight = useSelector((state: RooteState) => state.darklight);
 
   return (
     <>

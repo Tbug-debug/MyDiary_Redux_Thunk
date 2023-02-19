@@ -22,16 +22,14 @@ function Home() {
     (sate: RooteState) => sate.diarylist
   );
   const [isDark, setIsDark] = useState(false);
-  const darkLight = useSelector(
-    (state: RooteState) => state.darklight.lightdark
-  );
+  const darkLight = useSelector((state: RooteState) => state.darklight);
 
   useEffect(() => {
     dispatch(__getDiary());
   }, [dispatch]);
 
   const onCLickDelete = async (id: number) => {
-    await acuxios.delete(`https://mydiaryt.herokuapp.com/list/${id}`);
+    await acuxios.delete(`list/${id}`);
     dispatch(__getDiary());
   };
 

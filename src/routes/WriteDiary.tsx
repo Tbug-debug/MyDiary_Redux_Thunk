@@ -30,7 +30,7 @@ function WriteTodo() {
   const dispatch = useDispatch<AppDispatch>();
 
   const sendDataToJson = async (data: DataTyep) => {
-    acuxios.post("https://mydiaryt.herokuapp.com/list", data);
+    acuxios.post("list", data);
     dispatch(__getDiary());
   };
 
