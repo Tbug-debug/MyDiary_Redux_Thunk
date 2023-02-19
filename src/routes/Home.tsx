@@ -68,21 +68,22 @@ function Home() {
         </DiaryTextbox>
       </DiaryTitleBox>
       <DiaryOutBox>
-        {diary?.map((a) => {
-          return (
-            <DiaryBox key={a.id}>
-              <Link to={`/Detail/${a.id}`}>
-                <h2>주제: {a.title}</h2>
-                <h4>날짜: {a.date}</h4>
-                <h5>작성자 ID: {a.id}</h5>
-              </Link>
-              <DiaryBoxButton>
-                <Button btn={() => navigate(`/${a.id}`)}>수정</Button>
-                <Button btn={() => onCLickDelete(a.id)}>삭제</Button>
-              </DiaryBoxButton>
-            </DiaryBox>
-          );
-        })}
+        {diary &&
+          diary?.map((a) => {
+            return (
+              <DiaryBox key={a.id}>
+                <Link to={`/Detail/${a.id}`}>
+                  <h2>주제: {a.title}</h2>
+                  <h4>날짜: {a.date}</h4>
+                  <h5>작성자 ID: {a.id}</h5>
+                </Link>
+                <DiaryBoxButton>
+                  <Button btn={() => navigate(`/${a.id}`)}>수정</Button>
+                  <Button btn={() => onCLickDelete(a.id)}>삭제</Button>
+                </DiaryBoxButton>
+              </DiaryBox>
+            );
+          })}
       </DiaryOutBox>
     </>
   );
