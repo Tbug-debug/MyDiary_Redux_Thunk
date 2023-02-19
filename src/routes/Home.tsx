@@ -29,7 +29,7 @@ function Home() {
   }, [dispatch]);
 
   const onCLickDelete = async (id: number) => {
-    await acuxios.delete(`list/${id}`);
+    await acuxios.delete(`/list/${id}`);
     dispatch(__getDiary());
   };
 

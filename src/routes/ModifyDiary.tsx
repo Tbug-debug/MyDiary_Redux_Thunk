@@ -31,7 +31,7 @@ function ModifyDiary() {
   const dispatch = useDispatch<AppDispatch>();
 
   const sendDataToJson = async (data: DataTyep) => {
-    acuxios.put(`list/${id}`, data);
+    acuxios.put(`/list/${id}`, data);
     dispatch(__getDiary());
   };
 
