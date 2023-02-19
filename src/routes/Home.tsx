@@ -24,8 +24,6 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
   const darkLight = useSelector((state: RooteState) => state.darklight);
 
-  console.log(diary);
-
   useEffect(() => {
     dispatch(__getDiary());
   }, [dispatch]);

@@ -19,7 +19,7 @@ export const __getDiary = createAsyncThunk(
   "diary/getDiary",
   async (_, thunkAPI) => {
     try {
-      const data = await acuxios.get("https://mydiaryt.herokuapp.com/list");
+      const data = await acuxios.get("list");
       return thunkAPI.fulfillWithValue(data.data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
