@@ -70,7 +70,7 @@ function Home() {
         </DiaryTextbox>
       </DiaryTitleBox>
       <DiaryOutBox>
-        {diary.map((a) => {
+        {diary?.map((a) => {
           return (
             <DiaryBox key={a.id}>
               <Link to={`/Detail/${a.id}`}>
