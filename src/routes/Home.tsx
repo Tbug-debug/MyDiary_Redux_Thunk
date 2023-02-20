@@ -13,7 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { __getDiary } from "../redux/module/diarylLst";
 import { move } from "../redux/module/dark";
 import Button from "../components/Button";
-import { acuxios } from "../util/axiosbase";
+import { __deleteDiary } from "../redux/module/delete";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ function Home() {
   }, [dispatch]);
 
   const onCLickDelete = async (id: number) => {
-    await acuxios.delete(`/list/${id}`);
-    dispatch(__getDiary());
+    await dispatch(__deleteDiary(id));
+    await dispatch(__getDiary());
   };
 
   const clicKBtn = () => {

@@ -11,7 +11,8 @@ import {
   WriteDaiaryInputDate,
   WriteDaiaryInputbody,
 } from "../style/styled";
-import { acuxios } from "../util/axiosbase";
+
+import { __postDiary } from "../redux/module/post";
 
 interface DataTyep {
   title: string;
@@ -30,8 +31,8 @@ function WriteTodo() {
   const dispatch = useDispatch<AppDispatch>();
 
   const sendDataToJson = async (data: DataTyep) => {
-    acuxios.post("/list", data);
-    dispatch(__getDiary());
+    await dispatch(__postDiary(data));
+    await dispatch(__getDiary());
   };
 
   const submitValue = (event: React.FormEvent<HTMLFormElement>) => {

@@ -6,12 +6,12 @@ import Button from "../components/Button";
 import useInputs from "../hooks/useInputs";
 import { AppDispatch, RooteState } from "../redux/config/configStore";
 import { __getDiary } from "../redux/module/diarylLst";
+import { __modifyDiary } from "../redux/module/modify";
 import {
   ModifyDiaryBox,
   ModifyDiarybody,
   ModifyDiaryTitle,
 } from "../style/styled";
-import { acuxios } from "../util/axiosbase";
 
 interface DataTyep {
   title: string;
@@ -30,12 +30,7 @@ function ModifyDiary() {
   const diary = useSelector((sate: RooteState) => sate.diarylist.diary);
   const dispatch = useDispatch<AppDispatch>();
 
-  const sendDataToJson = async (data: DataTyep) => {
-    acuxios.put(`/list/${id}`, data);
-    dispatch(__getDiary());
-  };
-
-  function submitValue(event: React.FormEvent<HTMLFormElement>) {
+  const submitValue = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const diaryToEdit = diary.find((d) => d.id === Number(id));
     if (!diaryToEdit) return;
@@ -46,9 +41,10 @@ function ModifyDiary() {
       body: body || diaryToEdit.body,
       date: diaryToEdit.date,
     };
-    sendDataToJson(updatedData);
+    await dispatch(__modifyDiary({ modiform: updatedData, id: Number(id) }));
+    dispatch(__getDiary());
     navigate("/");
-  }
+  };
 
   return (
     <>
