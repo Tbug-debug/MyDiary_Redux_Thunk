@@ -24,10 +24,6 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
   const darkLight = useSelector((state: RooteState) => state.darklight);
 
-  useEffect(() => {
-    dispatch(__getDiary());
-  }, [dispatch]);
-
   const onCLickDelete = async (id: number) => {
     await dispatch(__deleteDiary(id));
     await dispatch(__getDiary());
