@@ -25,11 +25,20 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
   const darkLight = useSelector((state: RooteState) => state.darklight);
 
+  const loginChcek = () => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  };
+
   useEffect(() => {
+    loginChcek();
     dispatch(__getDiary());
   }, []);
 
   const onCLickDelete = async (id: number) => {
+    loginChcek();
     await dispatch(__deleteDiary(id));
     await dispatch(__getDiary());
   };

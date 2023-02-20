@@ -28,11 +28,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "startreac": "react-scripts start",
     "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && aws s3 sync build/ s3://mydiaryteg"
   },
   "eslintConfig": {
     "extends": [

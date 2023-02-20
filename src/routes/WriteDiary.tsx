@@ -31,6 +31,13 @@ function WriteTodo() {
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
 
+  useEffect(() => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  }, []);
+
   const sendDataToJson = async (data: DataTyep) => {
     await dispatch(__postDiary(data));
     await dispatch(__getDiary());

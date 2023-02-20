@@ -30,6 +30,13 @@ function ModifyDiary() {
   const diary = useSelector((sate: RooteState) => sate.diarylist.diary);
   const dispatch = useDispatch<AppDispatch>();
 
+  useEffect(() => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  }, []);
+
   const submitValue = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const diaryToEdit = diary.find((d) => d.id === Number(id));
