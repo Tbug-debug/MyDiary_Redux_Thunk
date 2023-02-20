@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useInputs from "../hooks/useInputs";
 import { AppDispatch } from "../redux/config/configStore";
@@ -13,6 +13,7 @@ import {
 } from "../style/styled";
 
 import { __postDiary } from "../redux/module/post";
+import isLogin from "../util/isLogin";
 
 interface DataTyep {
   title: string;
@@ -29,6 +30,13 @@ function WriteTodo() {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  }, []);
 
   const sendDataToJson = async (data: DataTyep) => {
     await dispatch(__postDiary(data));

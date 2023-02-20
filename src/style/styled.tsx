@@ -126,3 +126,45 @@ export const DetailIdDateBox = styled.div`
   justify-content: space-between;
   padding: 10px;
 `;
+
+export const LoginFormDiv = styled(display)`
+  //border: 0.0625rem solid black;
+  height: 90vh;
+  flex-direction: column;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const LoginFormText = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+export const LoginIDInput = styled(WriteDaiaryInputText)``;
+
+export const LoginPasswdInput = styled(WriteDaiaryInputText)`
+  margin-top: 1.25rem;
+`;
+
+export const RegistorFormDiv = styled(display)`
+  //border: 0.0625rem solid black;
+  height: 90vh;
+  flex-direction: column;
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+`;
+
+export const RegistorFormText = styled.h1`
+  color: ${(props) => props.theme.textColor};
+`;
+export const RegistorIDInput = styled(WriteDaiaryInputText)``;
+
+export const RegistorPasswdInput = styled(WriteDaiaryInputText)`
+  margin-top: 1.25rem;
+`;

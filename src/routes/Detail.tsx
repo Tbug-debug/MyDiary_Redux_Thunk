@@ -12,6 +12,7 @@ import {
   DetailTitleBodyBox,
 } from "../style/styled";
 import Button from "../components/Button";
+import isLogin from "../util/isLogin";
 
 function Detail() {
   const { id } = useParams();
@@ -21,6 +22,10 @@ function Detail() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
     dispatch(__getDiary());
   }, [dispatch]);
 

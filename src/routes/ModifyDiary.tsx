@@ -1,5 +1,4 @@
-import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
@@ -12,6 +11,7 @@ import {
   ModifyDiarybody,
   ModifyDiaryTitle,
 } from "../style/styled";
+import isLogin from "../util/isLogin";
 
 interface DataTyep {
   title: string;
@@ -29,6 +29,13 @@ function ModifyDiary() {
   const { id } = useParams();
   const diary = useSelector((sate: RooteState) => sate.diarylist.diary);
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  }, []);
 
   const submitValue = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

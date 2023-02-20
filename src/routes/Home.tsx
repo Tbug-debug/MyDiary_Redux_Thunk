@@ -14,6 +14,7 @@ import { __getDiary } from "../redux/module/diarylLst";
 import { move } from "../redux/module/dark";
 import Button from "../components/Button";
 import { __deleteDiary } from "../redux/module/delete";
+import isLogin from "../util/isLogin";
 
 function Home() {
   const navigate = useNavigate();
@@ -24,7 +25,20 @@ function Home() {
   const [isDark, setIsDark] = useState(false);
   const darkLight = useSelector((state: RooteState) => state.darklight);
 
+  const loginChcek = () => {
+    if (isLogin() === false) {
+      alert("로그인 먼저 해주세요!");
+      navigate("/login");
+    }
+  };
+
+  useEffect(() => {
+    loginChcek();
+    dispatch(__getDiary());
+  }, []);
+
   const onCLickDelete = async (id: number) => {
+    loginChcek();
     await dispatch(__deleteDiary(id));
     await dispatch(__getDiary());
   };
