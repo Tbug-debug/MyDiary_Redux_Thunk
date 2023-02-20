@@ -50,8 +50,6 @@ function Login() {
         after10m.setMinutes(now.getMinutes() + 1);
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
         setCookie("accessJWTToken", token, { path: "/", expires: after10m });
-      })
-      .then(() => {
         navigate("/");
       })
       .catch((error) => alert(error.response.data.message));

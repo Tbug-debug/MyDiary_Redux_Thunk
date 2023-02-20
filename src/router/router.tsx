@@ -10,8 +10,6 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/registor" element={<Reigistor />} />
         <Route path="/" element={<Home />}></Route>
         <Route path="/WriteTodo" element={<WriteTodo />}></Route>
         <Route path="/:id" element={<ModifyDiary />}></Route>

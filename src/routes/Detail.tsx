@@ -22,10 +22,6 @@ function Detail() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (isLogin() === false) {
-      alert("로그인 먼저 해주세요!");
-      navigate("/login");
-    }
     dispatch(__getDiary());
   }, [dispatch]);
 
