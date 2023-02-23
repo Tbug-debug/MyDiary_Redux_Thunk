@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Redux-Thunk
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 목차
 
-In the project directory, you can run:
+-   [1. 소개](#1-소개)
+-   [2. 기술 스택](#2-기술-스택)
+-   [3. Diary 기능](#3-Diary-기능)
+-   [4. Diary 사진](#4-Diary-사진)
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 1. 소개
+### React, Redux-Thunk와 json-server그리고 TypeScript로 Diary 만들기.
+React Redux-Thunk를 사용하여 Diary를 만들었습니다.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 2. 기술 스택
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white"> <img src="https://img.shields.io/badge/redux-764ABC?style=for-the-badge&logo=redux&logoColor=white">
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Diary 기능
+* Diary 입력기능
+* Diary 삭제 기능
+* Diary 수정 기능
+* 다크모드 / 라이트 모드
+* Diary Detail 기능
+* JWT 로그인 기능
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Diary 사진
 
-### `npm run eject`
+![제목 없음](https://user-images.githubusercontent.com/76459231/220839767-c3d36df9-fec2-4d1f-a735-873ab44b1673.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![제목 없음1](https://user-images.githubusercontent.com/76459231/220839792-3df30e3e-2717-4c2b-ba3b-d09fcbfcec7c.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![제목 없음2](https://user-images.githubusercontent.com/76459231/220839817-91e9055d-bbfc-4bdf-b2a5-a8195a2ae0a8.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![제목 없음3](https://user-images.githubusercontent.com/76459231/220839831-0c970598-8955-4597-a7d8-6a6ac7dbe752.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+
+![제목 없음4](https://user-images.githubusercontent.com/76459231/220839854-2ff69406-8cff-4fe6-8bf2-bec851854ca3.png)
+
+
